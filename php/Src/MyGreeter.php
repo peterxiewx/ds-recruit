@@ -5,9 +5,13 @@ class MyGreeter {
 
     private $exec_time = null;
 
-    public function __construct()
+    public function __construct($exec_time = null)
     {
-        $this->exec_time = date("H");
+        if (is_null($exec_time)) {
+            $this->exec_time = intval(date("H"));
+        } else {
+            $this->exec_time = intval($exec_time);
+        }
     }
 
     /**
